@@ -1,0 +1,47 @@
+{
+  "name": "react_phone-catalog-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthurfujii/node_phone-catalog.git"
+  },
+  "keywords": [
+    "nodejs",
+    "phone",
+    "catalog",
+    "api",
+    "backend"
+  ],
+  "author": "Arthur Fujii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthurfujii/node_phone-catalog/issues"
+  },
+  "homepage": "https://github.com/arthurfujii/node_phone-catalog#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.16.0",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "globals": "^15.13.0",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.4.2"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.5",
+    "uuid": "^11.0.3"
+  },
+  "description": ""
+}
