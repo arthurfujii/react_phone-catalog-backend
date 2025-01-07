@@ -5,7 +5,7 @@ import catchError from '../utils/catchError.js';
 const router = express.Router();
 
 router.get('/', catchError(productController.getAll));
-router.get('/', catchError(productController.sortBy));
 router.get('/:category', catchError(productController.getByCategory));
+router.get('/:category/:productId', catchError(productController.getById));
 
 export default router;

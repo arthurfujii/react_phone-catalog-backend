@@ -25,7 +25,19 @@ const getByCategory = async (req, res) => {
   res.send(result);
 };
 
+const getById = async (req, res) => {
+  const { productId } = req.params;
+  const product = await productService.getById(productId);
+
+  if (!product) {
+    return res.status(404).send('Product not found');
+  }
+
+  res.send(product);
+};
+
 export default {
   getAll,
   getByCategory,
+  getById,
 };
