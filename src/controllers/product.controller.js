@@ -3,7 +3,8 @@ import productService from '../services/product.service.js';
 
 const getAll = async (req, res) => {
   const sort = req.query.sort;
-  const result = await productService.getAll(sort);
+  const limit = req.query.limit;
+  const result = await productService.getAll(sort || 'default', limit || null);
 
   res.send(result);
 };
@@ -11,6 +12,7 @@ const getAll = async (req, res) => {
 const getByCategory = async (req, res) => {
   const category = req.params.category;
   const sort = req.query.sort;
+  const limit = req.query.limit;
   const categoryCheck = await categoryService.getById(category);
 
   if (!categoryCheck) {
@@ -20,6 +22,7 @@ const getByCategory = async (req, res) => {
   const result = await productService.getByCategory(
     category,
     sort || 'default',
+    limit || null,
   );
 
   res.send(result);

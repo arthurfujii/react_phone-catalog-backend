@@ -17,29 +17,33 @@ const attributes = [
 ];
 
 const sortMethods = {
-  age: ['year', 'DESC'],
-  title: ['name', 'ASC'],
-  price: ['discountPrice', 'ASC'],
-  default: ['year', 'DESC'],
+  age: [['year', 'DESC']],
+  title: [['name', 'ASC']],
+  price: [['discountPrice', 'ASC']],
+  default: [
+    ['year', 'DESC'],
+    ['name', 'ASC'],
+  ],
 };
 
-const getAll = async (sort = 'default') => {
+const getAll = async (sort = 'default', limit = null) => {
   const products = await Product.findAll({
     include: { model: Summary, attributes: [] },
     attributes: attributes,
-    order: [sortMethods[sort]],
+    order: sortMethods[sort],
+    limit,
   });
-  const count = await Product.count({ group: ['categoryId'] });
 
-  return { products, count };
+  return products;
 };
 
-const getByCategory = async (categoryId, sort) => {
+const getByCategory = async (categoryId, sort = 'default', limit = null) => {
   const productsByCategory = await Product.findAll({
     include: { model: Summary, attributes: [] },
     attributes: attributes,
     where: { categoryId },
-    order: [sortMethods[sort]],
+    order: sortMethods[sort],
+    limit,
   });
 
   return productsByCategory;
