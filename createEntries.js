@@ -12386,3 +12386,9 @@ const createEntries = async () => {
 };
 
 export default createEntries;
+
+await Category.sync({ force: true });
+await Product.sync({ force: true });
+await Summary.sync({ force: true });
+
+createEntries();
