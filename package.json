@@ -8,7 +8,7 @@
     "format": "prettier --write",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start": "node src/index.js"
+    "start": "node createEntries.js && node src/index.js"
   },
   "repository": {
     "type": "git",
