@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import client from '../utils/db.js';
 
-const Summary = client.define('Summary', {
+const summary = client.define('summary', {
   categoryId: {
     type: DataTypes.STRING,
   },
@@ -39,4 +39,4 @@ const Summary = client.define('Summary', {
   },
 });
 
-export default Summary;
+export default summary;

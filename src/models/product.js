@@ -1,9 +1,9 @@
 import { DataTypes } from 'sequelize';
 import client from '../utils/db.js';
-import Summary from './summary.js';
-import Category from './category.js';
+import summary from './summary.js';
+import category from './category.js';
 
-const Product = client.define('Product', {
+const product = client.define('product', {
   id: {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -39,7 +39,7 @@ const Product = client.define('Product', {
   },
 });
 
-Product.hasOne(Summary, { foreignKey: 'itemId' });
-Product.belongsTo(Category, { foreignKey: 'categoryId' });
+product.hasOne(summary, { foreignKey: 'itemId' });
+product.belongsTo(category, { foreignKey: 'categoryId' });
 
-export default Product;
+export default product;

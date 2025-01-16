@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import client from '../utils/db.js';
 
-export const Category = client.define('Category', {
+export const category = client.define('category', {
   category_name: {
     type: DataTypes.STRING,
     primaryKey: true,
@@ -12,4 +12,4 @@ export const Category = client.define('Category', {
   },
 });
 
-export default Category;
+export default category;

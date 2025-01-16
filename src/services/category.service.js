@@ -1,8 +1,8 @@
-import Category from '../models/category.js';
+import category from '../models/category.js';
 import productService from './product.service.js';
 
 const getAll = async () => {
-  const result = await Category.findAll({
+  const result = await category.findAll({
     attributes: ['category_name', 'bannerImg'],
   });
 
@@ -24,7 +24,7 @@ const getAll = async () => {
 };
 
 const getById = async (categoryId) => {
-  const category = await Category.findByPk(categoryId);
+  const category = await category.findByPk(categoryId);
   const catProductsCount = productService.countProductsByCategory(categoryId);
 
   return {

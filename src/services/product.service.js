@@ -1,5 +1,5 @@
-import Product from '../models/product.js';
-import Summary from '../models/summary.js';
+import product from '../models/product.js';
+import summary from '../models/summary.js';
 import sequelize from 'sequelize';
 
 const attributes = [
@@ -27,8 +27,8 @@ const sortMethods = {
 };
 
 const getAll = async (sort = 'default', limit = null) => {
-  const products = await Product.findAll({
-    include: { model: Summary, attributes: [] },
+  const products = await product.findAll({
+    include: { model: summary, attributes: [] },
     attributes: attributes,
     order: sortMethods[sort],
     limit,
@@ -38,8 +38,8 @@ const getAll = async (sort = 'default', limit = null) => {
 };
 
 const getByCategory = async (categoryId, sort = 'default', limit = null) => {
-  const productsByCategory = await Product.findAll({
-    include: { model: Summary, attributes: [] },
+  const productsByCategory = await product.findAll({
+    include: { model: summary, attributes: [] },
     attributes: attributes,
     where: { categoryId },
     order: sortMethods[sort],
@@ -50,8 +50,8 @@ const getByCategory = async (categoryId, sort = 'default', limit = null) => {
 };
 
 const getById = async (productId) => {
-  const product = await Product.findByPk(productId, {
-    include: { model: Summary, attributes: [] },
+  const product = await product.findByPk(productId, {
+    include: { model: summary, attributes: [] },
     attributes: attributes,
   });
 
@@ -59,7 +59,7 @@ const getById = async (productId) => {
 };
 
 const countProductsByCategory = async (category_name) => {
-  const count = await Product.count({ where: { categoryId: category_name } });
+  const count = await product.count({ where: { categoryId: category_name } });
 
   return count;
 };

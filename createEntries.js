@@ -1,9 +1,9 @@
-import Product from './src/models/product.js';
-import Category from './src/models/category.js';
-import Summary from './src/models/summary.js';
+import product from './src/models/product.js';
+import category from './src/models/category.js';
+import summary from './src/models/summary.js';
 
 const createEntries = async () => {
-  await Category.bulkCreate([
+  await category.bulkCreate([
     {
       category_name: 'phones',
       bannerImg: '/img/category-phones-sqr.png',
@@ -18,7 +18,7 @@ const createEntries = async () => {
     },
   ]);
 
-  await Product.bulkCreate([
+  await product.bulkCreate([
     {
       id: 'apple-iphone-11-128gb-black',
       categoryId: 'phones',
@@ -9859,7 +9859,7 @@ const createEntries = async () => {
     },
   ]);
 
-  await Summary.bulkCreate([
+  await summary.bulkCreate([
     {
       categoryId: 'phones',
       itemId: 'apple-iphone-7-32gb-black',
@@ -12387,8 +12387,8 @@ const createEntries = async () => {
 
 export default createEntries;
 
-await Category.sync({ force: true });
-await Product.sync({ force: true });
-await Summary.sync({ force: true });
+await category.sync({ force: true });
+await product.sync({ force: true });
+await summary.sync({ force: true });
 
 createEntries();
